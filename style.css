@@ -68,15 +68,26 @@ body {
     overflow-x: hidden;
 }
 
+body {
+    background: linear-gradient(to bottom, #071a3d, #0b3d91);
+    color: white;
+    overflow-x: hidden;
+}
+
 body::before {
-    content: "✨ ⭐ ✨ ⭐ ✨ ⭐ ✨";
+    content: "✦  ✧  ⭐  ✨  ⋆  ✦  ⭐  ✧  ✨  ⋆  ⭐  ✦  ✧  ⭐  ✨";
     position: fixed;
-    top: 10%;
-    left: 10%;
-    font-size: 25px;
-    opacity: 0.7;
-    animation: estrellas 4s infinite alternate;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 35px;
+    line-height: 80px;
+    letter-spacing: 35px;
+    color: white;
+    opacity: 0.8;
+    z-index: -1;
+    animation: estrellas 6s infinite alternate;
 }
 
 @keyframes estrellas {
@@ -84,6 +95,6 @@ body::before {
         transform: translateY(0);
     }
     to {
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
 }
