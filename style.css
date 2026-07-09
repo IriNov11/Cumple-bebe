@@ -34,3 +34,17 @@ button{
     color:white;
     font-size:18px;
 }
+#regalo{
+    margin-top:25px;
+    background:white;
+    color:#021B3A;
+    padding:20px;
+    border-radius:20px;
+    text-align:left;
+    max-height:400px;
+    overflow-y:auto;
+}
+
+#regalo p{
+    margin-bottom:15px;
+}

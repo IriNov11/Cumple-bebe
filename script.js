@@ -33,8 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (boton) {
         boton.addEventListener("click", () => {
-            alert(mensajes.join("\n\n"));
-        });
+
+    const regalo = document.getElementById("regalo");
+
+    regalo.style.display = "block";
+
+    regalo.innerHTML = mensajes
+        .map(m => `<p>${m}</p>`)
+        .join("");
+
+});
     } else {
         alert("No encontré el botón");
     }
