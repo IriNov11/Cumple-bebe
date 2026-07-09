@@ -38,9 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     regalo.style.display = "block";
 
-    regalo.innerHTML = mensajes
-        .map(m => `<p>${m}</p>`)
-        .join("");
+const galeria = regalo.querySelector(".galeria");
+
+regalo.innerHTML = "";
+
+if (galeria) {
+    regalo.appendChild(galeria);
+}
+
+mensajes.forEach(mensaje => {
+    const p = document.createElement("p");
+    p.textContent = mensaje;
+    regalo.appendChild(p);
+});
 
 });
     } else {

@@ -48,3 +48,17 @@ button{
 #regalo p{
     margin-bottom:15px;
 }
+.galeria{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-bottom:20px;
+    align-items:center;
+}
+
+.galeria img{
+    width:90%;
+    max-width:320px;
+    border-radius:20px;
+    box-shadow:0 0 15px rgba(255,255,255,.3);
+}
