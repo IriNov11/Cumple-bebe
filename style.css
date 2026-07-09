@@ -118,10 +118,28 @@ body::before {
 .luna {
     position: fixed;
     top: 40px;
-    right: 40px;
-    font-size: 80px;
+    right: 50px;
+    width: 90px;
+    height: 90px;
+    background: #fff7c2;
+    border-radius: 50%;
+    box-shadow:
+        0 0 20px #fff7c2,
+        0 0 50px rgba(255, 247, 194, 0.8),
+        0 0 90px rgba(255, 247, 194, 0.5);
+    z-index: 10;
     animation: flotarLuna 4s ease-in-out infinite;
-    z-index: 0;
+}
+
+.luna::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    width: 90px;
+    height: 90px;
+    background: #071a3d;
+    border-radius: 50%;
 }
 
 @keyframes flotarLuna {
@@ -129,6 +147,6 @@ body::before {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(15px);
+        transform: translateY(12px);
     }
 }
