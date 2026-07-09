@@ -115,3 +115,20 @@ body::before {
         opacity: 1;
     }
 }
+.luna {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    font-size: 80px;
+    animation: flotarLuna 4s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes flotarLuna {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
