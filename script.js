@@ -61,8 +61,6 @@ const fin = Date.now() + duracion;
     }
 })();
 
-if (regalo.querySelector(".mensaje")) return;
-
 mensajes.forEach(mensaje => {
     const p = document.createElement("p");
     p.className = "mensaje";
