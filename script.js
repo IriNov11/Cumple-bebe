@@ -37,17 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const regalo = document.getElementById("regalo");
 
     regalo.style.display = "block";
+    
+const duracion = 3000;
+const fin = Date.now() + duracion;
 
-const galeria = regalo.querySelector(".galeria");
+(function lanzarConfeti() {
+    confetti({
+        particleCount: 8,
+        angle: 60,
+        spread: 70,
+        origin: { x: 0 }
+    });
 
-regalo.innerHTML = "";
+    confetti({
+        particleCount: 8,
+        angle: 120,
+        spread: 70,
+        origin: { x: 1 }
+    });
 
-if (galeria) {
-    regalo.appendChild(galeria);
-}
+    if (Date.now() < fin) {
+        requestAnimationFrame(lanzarConfeti);
+    }
+})();
+
+if (regalo.querySelector(".mensaje")) return;
 
 mensajes.forEach(mensaje => {
     const p = document.createElement("p");
+    p.className = "mensaje";
     p.textContent = mensaje;
     regalo.appendChild(p);
 });
