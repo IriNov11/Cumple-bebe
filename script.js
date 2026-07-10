@@ -30,59 +30,79 @@ const mensajes = [
 document.addEventListener("DOMContentLoaded", () => {
 
     const boton = document.getElementById("abrir");
+    const regalo = document.getElementById("regalo");
+    const musica = document.getElementById("musica");
 
-    if (!boton) {
-        alert("No encontré el botón");
-        return;
-    }
+    if (!boton || !regalo) return;
 
     boton.addEventListener("click", () => {
 
-        const regalo = document.getElementById("regalo");
-
         regalo.style.display = "block";
-        
-        const musica = document.getElementById("musica");
 
-musica.play().catch(() => {
-    console.log("La música no pudo iniciar automáticamente.");
-});
+        musica.play().catch(() => {});
 
-        // Evita agregar los mensajes otra vez
-        if (!regalo.querySelector(".mensaje")) {
+        if (regalo.querySelector(".mensaje-regalo")) return;
 
-            // Confeti
-            const duracion = 3000;
-            const fin = Date.now() + duracion;
+        // Confeti
+        const fin = Date.now() + 3000;
 
-            (function lanzarConfeti() {
-                confetti({
-                    particleCount: 8,
-                    angle: 60,
-                    spread: 70,
-                    origin: { x: 0 }
-                });
+        (function lanzarConfeti() {
 
-                confetti({
-                    particleCount: 8,
-                    angle: 120,
-                    spread: 70,
-                    origin: { x: 1 }
-                });
-
-                if (Date.now() < fin) {
-                    requestAnimationFrame(lanzarConfeti);
-                }
-            })();
-
-            // Mensajes
-            mensajes.forEach(mensaje => {
-                const p = document.createElement("p");
-                p.className = "mensaje-regalo";
-                p.textContent = mensaje;
-                regalo.appendChild(p);
+            confetti({
+                particleCount: 8,
+                angle: 60,
+                spread: 70,
+                origin: { x: 0 }
             });
-        }
+
+            confetti({
+                particleCount: 8,
+                angle: 120,
+                spread: 70,
+                origin: { x: 1 }
+            });
+
+            if (Date.now() < fin) {
+                requestAnimationFrame(lanzarConfeti);
+            }
+
+        })();
+
+        // Mensajes
+        mensajes.forEach(mensaje => {
+            const p = document.createElement("p");
+            p.className = "mensaje-regalo";
+            p.textContent = mensaje;
+            regalo.appendChild(p);
+        });
+
+        // Carta
+        const carta = document.createElement("div");
+        carta.className = "carta";
+
+        carta.innerHTML = `
+        <h2>💌 Una última sorpresa para ti...</h2>
+
+        <p><strong>¡Feliz cumpleaños, mi vida! 🎂💙</strong></p>
+
+        <p>Ojalá este sea uno de los últimos cumpleaños que tengamos que pasar lejos la una de la otra. Deseo mucho pasar los días contigo, para convivir, abrazarte, consentirte y darte muchos besos. 🥹❤️</p>
+
+        <p>Nunca olvides lo importante que eres para mí y la gran mujer que eres. No permitas que ningún comentario de personas ajenas te haga dudar de tu valor.</p>
+
+        <p>Deseo de todo corazón que este nuevo año de vida esté lleno de momentos felices, oportunidades y sueños cumplidos.</p>
+
+        <p>Te mando un fuerte abrazo y muchos besos. Espero con muchas ganas el día en que por fin pueda tenerte frente a mí.</p>
+
+        <p>Gracias por formar parte de mi vida y por hacerla más bonita desde que llegaste.</p>
+
+        <p><strong>Te amo mucho, chaparrita. ❤️❤️</strong></p>
+
+        <p style="text-align:center;margin-top:30px;">
+        🌙 Sin importar la distancia, cada vez que mires la luna, recuerda que yo también la estaré mirando... y pensando en ti. 💙
+        </p>
+        `;
+
+        regalo.appendChild(carta);
 
     });
 

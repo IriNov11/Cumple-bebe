@@ -168,3 +168,25 @@ body::before {
         transform: translateY(-15px);
     }
 }
+
+.carta{
+    margin-top:40px;
+    padding:25px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    color:white;
+    line-height:1.8;
+    box-shadow:0 0 20px rgba(173,216,255,.25);
+    backdrop-filter:blur(5px);
+}
+
+.carta h2{
+    text-align:center;
+    color:#b9e6ff;
+    margin-bottom:20px;
+}
+
+.carta p{
+    margin-bottom:15px;
+}
