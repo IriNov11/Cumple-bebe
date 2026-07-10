@@ -31,46 +31,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const boton = document.getElementById("abrir");
 
-    if (boton) {
-        boton.addEventListener("click", () => {
-
-    const regalo = document.getElementById("regalo");
-
-    regalo.style.display = "block";
-    
-const duracion = 3000;
-const fin = Date.now() + duracion;
-
-(function lanzarConfeti() {
-    confetti({
-        particleCount: 8,
-        angle: 60,
-        spread: 70,
-        origin: { x: 0 }
-    });
-
-    confetti({
-        particleCount: 8,
-        angle: 120,
-        spread: 70,
-        origin: { x: 1 }
-    });
-
-    if (Date.now() < fin) {
-        requestAnimationFrame(lanzarConfeti);
-    }
-})();
-
-mensajes.forEach(mensaje => {
-    const p = document.createElement("p");
-    p.className = "mensaje";
-    p.textContent = mensaje;
-    regalo.appendChild(p);
-});
-
-});
-    } else {
+    if (!boton) {
         alert("No encontré el botón");
+        return;
     }
+
+    boton.addEventListener("click", () => {
+
+        const regalo = document.getElementById("regalo");
+
+        regalo.style.display = "block";
+        
+        const musica = document.getElementById("musica");
+
+musica.play().catch(() => {
+    console.log("La música no pudo iniciar automáticamente.");
+});
+
+        // Evita agregar los mensajes otra vez
+        if (!regalo.querySelector(".mensaje")) {
+
+            // Confeti
+            const duracion = 3000;
+            const fin = Date.now() + duracion;
+
+            (function lanzarConfeti() {
+                confetti({
+                    particleCount: 8,
+                    angle: 60,
+                    spread: 70,
+                    origin: { x: 0 }
+                });
+
+                confetti({
+                    particleCount: 8,
+                    angle: 120,
+                    spread: 70,
+                    origin: { x: 1 }
+                });
+
+                if (Date.now() < fin) {
+                    requestAnimationFrame(lanzarConfeti);
+                }
+            })();
+
+            // Mensajes
+            mensajes.forEach(mensaje => {
+                const p = document.createElement("p");
+                p.className = "mensaje-regalo";
+                p.textContent = mensaje;
+                regalo.appendChild(p);
+            });
+        }
+
+    });
 
 });
