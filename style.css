@@ -36,13 +36,14 @@ button{
 }
 #regalo{
     margin-top:25px;
-    background:white;
-    color:#021B3A;
+    background:#0b2d57;
+    color:white;
     padding:20px;
     border-radius:20px;
     text-align:left;
     max-height:400px;
     overflow-y:auto;
+    border:2px solid #4FC3F7;
 }
 
 #regalo p{
